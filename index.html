@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEXUS-G OS - INTERFAZ NEURAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;500;800&display=swap');
+      
+      :root {
+        --nexus-red: #ff0000;
+        --nexus-red-bright: #ff3333;
+        --bg-deep: #020202;
+      }
+
+      body {
+        background-color: var(--bg-deep);
+        color: var(--nexus-red);
+        font-family: 'JetBrains Mono', monospace;
+        overflow: hidden;
+        user-select: none;
+        height: 100vh;
+      }
+
+      .orbitron { font-family: 'Orbitron', sans-serif; }
+
+      /* Paneles HUD con desenfoque */
+      .hud-glass {
+        background: linear-gradient(135deg, rgba(255,0,0,0.02) 0%, transparent 100%);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,0,0,0.08);
+        box-shadow: 0 8px 32px 0 rgba(0,0,0,0.8);
+      }
+
+      /* Animaciones de Reactor */
+      @keyframes reactor-pulse {
+        0%, 100% { transform: scale(1); opacity: 0.8; filter: blur(2px); }
+        50% { transform: scale(1.1); opacity: 1; filter: blur(5px); }
+      }
+
+      @keyframes orbit-cw { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      @keyframes orbit-ccw { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+
+      .animate-reactor-pulse { animation: reactor-pulse 2s ease-in-out infinite; }
+      .rotate-cw { animation: orbit-cw 20s linear infinite; }
+      .rotate-ccw { animation: orbit-ccw 25s linear infinite; }
+      .rotate-cw-fast { animation: orbit-cw 8s linear infinite; }
+
+      /* Fondo de Red Táctica */
+      .bg-tactical {
+        background-image: 
+          radial-gradient(circle at center, rgba(255,0,0,0.03) 0%, transparent 70%),
+          linear-gradient(rgba(255,0,0,0.01) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,0,0,0.01) 1px, transparent 1px);
+        background-size: 100% 100%, 50px 50px, 50px 50px;
+      }
+
+      .glow-red { filter: drop-shadow(0 0 15px rgba(255,0,0,0.5)); }
+
+      ::-webkit-scrollbar { display: none; }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div class="fixed inset-0 bg-tactical pointer-events-none"></div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

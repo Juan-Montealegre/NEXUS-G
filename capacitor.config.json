@@ -1,0 +1,17 @@
+
+{
+  "appId": "com.nexus.global.mobile",
+  "appName": "NEXUS-G",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https",
+    "cleartext": true
+  },
+  "plugins": {
+    "Keyboard": {
+      "resize": "body",
+      "style": "dark"
+    }
+  }
+}

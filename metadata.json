@@ -1,0 +1,17 @@
+{
+  "name": "NEXUS-G OS",
+  "short_name": "NEXUS-G",
+  "description": "Next-Gen Global Neural Interface",
+  "version": "3.0.0",
+  "manifest": {
+    "display": "standalone",
+    "orientation": "landscape",
+    "background_color": "#050505",
+    "theme_color": "#ff0000"
+  },
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
